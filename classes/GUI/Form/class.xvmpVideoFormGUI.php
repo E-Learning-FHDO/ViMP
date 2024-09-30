@@ -389,7 +389,7 @@ abstract class xvmpVideoFormGUI extends xvmpFormGUI
     {
         $media_permissions = xvmpConf::getConfig(xvmpConf::F_MEDIA_PERMISSIONS);
         if ($media_permissions) {
-            $input = $this->getMediaPermissionsInput($media_permissions);
+            $input = $this->getMediaPermissionsInput((int)$media_permissions);
             if (!empty($input->getOptions())) {
                 $this->addItem($input);
             }
@@ -403,6 +403,7 @@ abstract class xvmpVideoFormGUI extends xvmpFormGUI
         $input->setInfo($this->pl->txt(xvmpConf::F_MEDIA_PERMISSIONS . '_info'));
         $input->setRequired(true);
         $options = array();
+        $selectable_roles = array();
         if ($media_permissions == xvmpConf::MEDIA_PERMISSION_SELECTION) {
             $selectable_roles = xvmpConf::getConfig(xvmpConf::F_MEDIA_PERMISSIONS_SELECTION);
         }
