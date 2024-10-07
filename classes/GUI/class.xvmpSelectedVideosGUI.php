@@ -79,7 +79,7 @@ class xvmpSelectedVideosGUI extends xvmpVideosGUI {
 		$visible = $_GET['visible'];
 		/** @var xvmpSelectedMedia $video */
 		$video = xvmpSelectedMedia::where(array('mid' => $mid, 'obj_id' => $this->getObjId()))->first();
-		$video->setVisible($visible);
+		$video->setVisible((int) $visible);
 		$video->update();
 		exit;
 	}
