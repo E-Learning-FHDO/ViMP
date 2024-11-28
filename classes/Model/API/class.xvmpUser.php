@@ -246,7 +246,7 @@ class xvmpUser extends xvmpObject {
 	/**
 	 * @var String
 	 */
-	protected string $last_access_at;
+	protected ?string $last_access_at;
 	/**
 	 * @var String
 	 */
@@ -383,7 +383,7 @@ class xvmpUser extends xvmpObject {
 	/**
 	 * @return String
 	 */
-	public function getLastAccessAt(): string
+	public function getLastAccessAt(): ?string
     {
 		return $this->last_access_at;
 	}
