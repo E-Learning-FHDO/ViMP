@@ -197,6 +197,7 @@ class xvmpRequest
             $xvmpCurl->addPostField($name, $value);
         }
 
+        $xvmpCurl->addPostField('fileExtension', pathinfo(parse_url($params['source_url'], PHP_URL_PATH), PATHINFO_EXTENSION));
         $xvmpCurl->post();
 
         return $xvmpCurl;
