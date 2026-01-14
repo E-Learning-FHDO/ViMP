@@ -120,6 +120,7 @@ class xvmpUser extends xvmpObject {
 		$response = xvmpRequest::getUser($uid, array(
 			'roles' => 'true'
 		))->getResponseArray();
+	        $response['user']['last_access_at'] = $response['user']['last_access_at'] ?? '';
 		$xvmpUser = new self();
 		$xvmpUser->buildObjectFromArray($response['user']);
 		return $xvmpUser;
